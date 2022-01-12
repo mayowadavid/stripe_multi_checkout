@@ -4,10 +4,9 @@ const { resolve } = require("path");
 const env = require("dotenv").config({ path: ".env" });
 // This is your test secret API key.
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-//const stripe = require('stripe')('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');
 app.use(express.static('public'));
 
-const YOUR_DOMAIN = 'http://localhost:4242';
+const YOUR_DOMAIN = process.env.URL;
 
 app.get("/", (req, res) => {
   // Display checkout page
